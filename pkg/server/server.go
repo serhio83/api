@@ -26,7 +26,7 @@ func NewServer(u root.UserService, config *root.Config) *Server {
 }
 
 func(s *Server) Start() {
-  log.Println("Listening on port " + s.config.Port)
+  log.Println("Listening on http://127.0.0.1:" + s.config.Port)
   if err := http.ListenAndServe(":" + s.config.Port, handlers.LoggingHandler(os.Stdout, s.router)); err != nil {
       log.Fatal("http.ListenAndServe: ", err)
   }
