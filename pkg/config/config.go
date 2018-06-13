@@ -1,18 +1,26 @@
 package config
 
 import (
+	"log"
 	"os"
 
 	"git.topcloud.ru/api/pkg"
+	"github.com/BurntSushi/toml"
 )
 
+type Cfg struct {
+	ApiMongoUrl		string
+	ApiMongoDB		string
+	ApiServerPort	string
+}
+
 func GetConfig() *root.Config {
+	var c Cfg
+	ReadConfig(&c)
   return &root.Config {
-    Mongo: &root.MongoConfig {
-      Ip: envOrDefaultString("go_rest_api:mongo:ip", "127.0.0.1:27017"),
-      DbName: envOrDefaultString("go_rest_api:mongo:dbName", "myDb")},
-    Server: &root.ServerConfig { Port: envOrDefaultString("go_rest_api:server:port", ":8000")},
-    Auth: &root.AuthConfig { Secret: envOrDefaultString("go_rest_api:auth:secret", "mysecret")}}
+    Mongo: &root.MongoConfig { Ip: c.ApiMongoUrl, DbName: c.ApiMongoDB},
+    Server: &root.ServerConfig { Port: c.ApiServerPort},
+    Auth: &root.AuthConfig { Secret: envOrDefaultString("API_AUTH_SECRET", "mysecret")}}
 }
 
 func envOrDefaultString(envVar string, defaultValue string) string {
@@ -22,4 +30,11 @@ func envOrDefaultString(envVar string, defaultValue string) string {
   }
   
   return value
+}
+
+func ReadConfig(c *Cfg) *Cfg {
+	if _, err := toml.DecodeFile("../../cfg/config.toml", &c); err != nil {
+		log.Println(err)
+	}
+	return c
 }

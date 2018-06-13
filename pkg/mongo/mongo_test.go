@@ -16,16 +16,16 @@ const (
 )
 
 func Test_UserService(t *testing.T) {
-  t.Run("CreateUser", createUser_should_insert_user_into_mongo)
+  t.Run("CreateUser", createuserShouldInsertUserIntoMongo)
 }
 
-func createUser_should_insert_user_into_mongo(t *testing.T) {
+func createuserShouldInsertUserIntoMongo(t *testing.T) {
   //Arrange
   mongoConfig := root.MongoConfig {
-	Ip: "127.0.0.1:27017",
-	DbName: "myDb" }
+	Ip: "admin:admin@127.0.0.1:27017",
+	DbName: "mytestapi" }
   session, err := mongo.NewSession(&mongoConfig)
-  if(err != nil) {
+  if err != nil {
     log.Fatalf("Unable to connect to mongo: %s", err)
   }
   defer func() {
@@ -45,13 +45,12 @@ func createUser_should_insert_user_into_mongo(t *testing.T) {
   err = userService.CreateUser(&user)
 
   //Assert
-  if(err != nil) {
-    t.Error("Unable to create user: %s", err)
+  if err != nil {
+    t.Errorf("Unable to create user: %s", err)
   }
 
   _, resultUser := userService.GetUserByUsername(testUsername)
-
-  if(resultUser.Username != user.Username) {
-    t.Error("Incorrect Username. Expected `%s`, Got: `%s`", testUsername, resultUser.Username)
+  if resultUser.Username != user.Username {
+    t.Errorf("Incorrect Username. Expected `%s`, Got: `%s`", testUsername, resultUser.Username)
   }
 }
