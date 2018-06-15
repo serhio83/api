@@ -7,3 +7,4 @@
 ehthumbs.db
 Thumbs.db
 cmd/app/app
+cmd/app/config.toml
