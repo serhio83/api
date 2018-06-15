@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"log"
 
 	"git.topcloud.ru/api/pkg"
@@ -29,7 +28,6 @@ func (a *App) Initialize() {
 }
 
 func (a *App) Run() {
-	fmt.Println("Run")
 	defer a.session.Close()
 	a.server.Start()
 }
