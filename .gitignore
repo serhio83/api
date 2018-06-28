@@ -9,3 +9,4 @@ Thumbs.db
 cmd/app/app
 server.log
 tst.go
+cmd/app/config.toml

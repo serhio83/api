@@ -33,8 +33,8 @@ func envOrDefaultString(envVar string, defaultValue string) string {
 }
 
 func ReadConfig(c *Cfg) *Cfg {
-	if _, err := toml.DecodeFile("../../cfg/config.toml", &c); err != nil {
-		log.Println(err)
+	if _, err := toml.DecodeFile("config.toml", &c); err != nil {
+		log.Fatal(err)
 	}
 	return c
 }
