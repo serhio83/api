@@ -4,16 +4,16 @@ import (
   "log"
   "testing"
 
-  "git.topcloud.ru/api/pkg"
-  "git.topcloud.ru/api/pkg/mongo"
+  "git.topcloud.ru/topcloud.ru/api/pkg"
+  "git.topcloud.ru/topcloud.ru/api/pkg/mongo"
 )
 
 
-const (
-  mongoUrl = "localhost:27017"
-  dbName = "test_db"
-  userCollectionName = "user"
-)
+//const (
+//  mongoUrl = "localhost:27017"
+//  dbName = "test_db"
+//  userCollectionName = "user"
+//)
 
 func Test_UserService(t *testing.T) {
   t.Run("CreateUser", createuserShouldInsertUserIntoMongo)
@@ -22,7 +22,7 @@ func Test_UserService(t *testing.T) {
 func createuserShouldInsertUserIntoMongo(t *testing.T) {
   //Arrange
   mongoConfig := root.MongoConfig {
-	Ip: "admin:admin@127.0.0.1:27017",
+	Url: "admin:admin@127.0.0.1:27017",
 	DbName: "mytestapi" }
   session, err := mongo.NewSession(&mongoConfig)
   if err != nil {

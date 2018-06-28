@@ -1,6 +1,8 @@
 package mock
 
-import "git.topcloud.ru/api/pkg"
+import (
+  "git.topcloud.ru/topcloud.ru/api/pkg"
+)
 
 type UserService struct {
   CreateUserFn func(u *root.User) error

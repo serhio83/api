@@ -7,3 +7,5 @@
 ehthumbs.db
 Thumbs.db
 cmd/app/app
+server.log
+tst.go

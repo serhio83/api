@@ -1,7 +1,7 @@
 package mongo
 
 import (
-  "git.topcloud.ru/api/pkg"
+  "git.topcloud.ru/topcloud.ru/api/pkg"
   "gopkg.in/mgo.v2"
 )
 
@@ -11,7 +11,7 @@ type Session struct {
 
 func NewSession(config *root.MongoConfig) (*Session,error) {
   //var err error
-  session, err := mgo.Dial(config.Ip)
+  session, err := mgo.Dial(config.Url)
   if err != nil {
     return nil,err
   }

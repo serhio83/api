@@ -5,13 +5,12 @@ import (
 	"context"
 	"encoding/json"
 	"errors"
-	"fmt"
 	"net/http"
 	"net/http/httptest"
 	"testing"
 
-	"git.topcloud.ru/api/pkg"
-	"git.topcloud.ru/api/pkg/mock"
+	"git.topcloud.ru/topcloud.ru/api/pkg"
+	"git.topcloud.ru/topcloud.ru/api/pkg/mock"
 	"github.com/dgrijalva/jwt-go"
 	"github.com/gorilla/mux"
 )

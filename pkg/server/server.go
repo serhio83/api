@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"os"
 
-	"git.topcloud.ru/api/pkg"
+	"git.topcloud.ru/topcloud.ru/api/pkg"
 	"github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
 )
@@ -18,7 +18,7 @@ type Server struct {
 func NewServer(u root.UserService, config *root.Config) *Server {
   s := Server { 
     router: mux.NewRouter(),
-    config: config.Server }
+    config: config.Server}
   
   a := authHelper{config.Auth.Secret}
   NewUserRouter(u, s.getSubrouter("/user"), &a)
@@ -26,7 +26,7 @@ func NewServer(u root.UserService, config *root.Config) *Server {
 }
 
 func(s *Server) Start() {
-  log.Println("Listening on http://127.0.0.1:" + s.config.Port)
+  log.Println("Listening on http://0.0.0.0:" + s.config.Port)
   if err := http.ListenAndServe(":" + s.config.Port, handlers.LoggingHandler(os.Stdout, s.router)); err != nil {
       log.Fatal("http.ListenAndServe: ", err)
   }

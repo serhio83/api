@@ -1,7 +1,7 @@
 package mongo
 
 import (
-	"git.topcloud.ru/api/pkg"
+	"git.topcloud.ru/topcloud.ru/api/pkg"
 
 	"github.com/google/uuid"
 	"golang.org/x/crypto/bcrypt"

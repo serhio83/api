@@ -6,9 +6,8 @@ import (
 	"net/http"
 	"time"
 
-	"git.topcloud.ru/api/pkg"
-
-	"github.com/dgrijalva/jwt-go"
+  "git.topcloud.ru/topcloud.ru/api/pkg"
+  "github.com/dgrijalva/jwt-go"
 )
 
 type authHelper struct {
@@ -57,7 +56,7 @@ func(a *authHelper) validate(next http.HandlerFunc) http.HandlerFunc {
        
     token, err := jwt.ParseWithClaims(cookie.Value, &claims{}, func(token *jwt.Token) (interface{}, error){
       if _, ok := token.Method.(*jwt.SigningMethodHMAC); !ok {
-        return nil, fmt.Errorf("Unexpected siging method")    
+        return nil, fmt.Errorf("Unexpected siging method\n")
       }    
       return []byte(a.secret), nil
     })

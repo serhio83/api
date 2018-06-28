@@ -4,7 +4,7 @@ import (
 	"log"
 	"os"
 
-	"git.topcloud.ru/api/pkg"
+	"git.topcloud.ru/topcloud.ru/api/pkg"
 	"github.com/BurntSushi/toml"
 )
 
@@ -18,7 +18,7 @@ func GetConfig() *root.Config {
 	var c Cfg
 	ReadConfig(&c)
   return &root.Config {
-    Mongo: &root.MongoConfig { Ip: c.ApiMongoUrl, DbName: c.ApiMongoDB},
+    Mongo: &root.MongoConfig { Url: c.ApiMongoUrl, DbName: c.ApiMongoDB},
     Server: &root.ServerConfig { Port: c.ApiServerPort},
     Auth: &root.AuthConfig { Secret: envOrDefaultString("API_AUTH_SECRET", "mysecret")}}
 }

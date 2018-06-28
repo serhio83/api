@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"log"
 
-	"git.topcloud.ru/api/pkg"
-	"git.topcloud.ru/api/pkg/config"
-	"git.topcloud.ru/api/pkg/mongo"
-	"git.topcloud.ru/api/pkg/server"
+	"git.topcloud.ru/topcloud.ru/api/pkg"
+	"git.topcloud.ru/topcloud.ru/api/pkg/config"
+	"git.topcloud.ru/topcloud.ru/api/pkg/mongo"
+	"git.topcloud.ru/topcloud.ru/api/pkg/server"
 )
 
 type App struct {
@@ -16,7 +16,7 @@ type App struct {
 	config  *root.Config
 }
 
-func (a *App) Initialize() {
+func(a *App) Initialize() {
 	a.config = config.GetConfig()
 	var err error
 	a.session, err = mongo.NewSession(a.config.Mongo)
@@ -28,7 +28,7 @@ func (a *App) Initialize() {
 	a.server = server.NewServer(u, a.config)
 }
 
-func (a *App) Run() {
+func(a *App) Run() {
 	fmt.Println("Run")
 	defer a.session.Close()
 	a.server.Start()

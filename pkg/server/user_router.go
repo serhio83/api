@@ -5,8 +5,8 @@ import (
 	"errors"
 	"net/http"
 
-	"git.topcloud.ru/api/pkg"
-	"github.com/gorilla/mux"
+  "git.topcloud.ru/topcloud.ru/api/pkg"
+  "github.com/gorilla/mux"
 )
 
 type userRouter struct {
@@ -23,7 +23,7 @@ func NewUserRouter(u root.UserService, router *mux.Router, a *authHelper) *mux.R
   return router
 }
 
-func(ur* userRouter) createUserHandler(w http.ResponseWriter, r *http.Request) {
+func(ur *userRouter) createUserHandler(w http.ResponseWriter, r *http.Request) {
   err, user := decodeUser(r)
   if err != nil {
     Error(w, http.StatusBadRequest, "Invalid request payload")
@@ -39,7 +39,7 @@ func(ur* userRouter) createUserHandler(w http.ResponseWriter, r *http.Request) {
   Json(w, http.StatusOK, err)
 }
 
-func(ur* userRouter) profileHandler(w http.ResponseWriter, r *http.Request) {
+func(ur *userRouter) profileHandler(w http.ResponseWriter, r *http.Request) {
   claim, ok := r.Context().Value(contextKeyAuthtoken).(claims)
   if !ok {
     Error(w, http.StatusBadRequest, "no context")
@@ -69,7 +69,7 @@ func(ur *userRouter) getUserHandler(w http.ResponseWriter, r *http.Request) {
   Json(w, http.StatusOK, user)
 }
 
-func(ur* userRouter) loginHandler(w http.ResponseWriter, r *http.Request) {
+func(ur *userRouter) loginHandler(w http.ResponseWriter, r *http.Request) {
   err, credentials := decodeCredentials(r)
   if err != nil {
     Error(w, http.StatusBadRequest, "Invalid request payload")
