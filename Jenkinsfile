@@ -3,10 +3,8 @@ pipeline {
   
   stages {
     stage('stage1') {
-      stage('stage1') {
-        steps {
-          sh 'echo 1 > /1.txt'
-        }
+      steps {
+        sh 'echo 1 > /1.txt'
       }
     }
     stage('stage #2') {
