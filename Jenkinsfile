@@ -4,7 +4,7 @@ pipeline {
   stages {
     stage('stage1') {
       steps {
-        sh 'echo 1 > /1.txt'
+        sh 'echo 1 > 1.txt'
       }
     }
     stage('stage #2') {
@@ -17,7 +17,7 @@ pipeline {
           docker { image 'jenkinsci/slave' }
       }
       steps {
-          sh 'uname -a && ls -la; echo done > /done.txt'
+          sh 'uname -a && ls -la; echo done > done.txt'
       }
     }
   }
