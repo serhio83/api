@@ -1,12 +1,12 @@
-package main
+package app
 
 import (
 	"log"
 
-	"git.topcloud.ru/topcloud.ru/api/pkg"
-	"git.topcloud.ru/topcloud.ru/api/pkg/config"
-	"git.topcloud.ru/topcloud.ru/api/pkg/mongo"
-	"git.topcloud.ru/topcloud.ru/api/pkg/server"
+	"github.com/serhio83/api/pkg"
+	"github.com/serhio83/api/pkg/config"
+	"github.com/serhio83/api/pkg/mongo"
+	"github.com/serhio83/api/pkg/server"
 )
 
 type App struct {

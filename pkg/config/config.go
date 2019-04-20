@@ -4,7 +4,7 @@ import (
 	"log"
 	"os"
 
-	"git.topcloud.ru/topcloud.ru/api/pkg"
+	"github.com/serhio83/api/pkg"
 	"github.com/BurntSushi/toml"
 )
 

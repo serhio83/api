@@ -3,3 +3,8 @@
 - mgo
 - gorilla mux
 - jwt-go
+
+### build:
+```
+# make
+```

@@ -1,7 +1,7 @@
 package mock
 
 import (
-  "git.topcloud.ru/topcloud.ru/api/pkg"
+  "github.com/serhio83/api/pkg"
 )
 
 type UserService struct {

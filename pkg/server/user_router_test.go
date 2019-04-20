@@ -9,8 +9,8 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"git.topcloud.ru/topcloud.ru/api/pkg"
-	"git.topcloud.ru/topcloud.ru/api/pkg/mock"
+	"github.com/serhio83/api/pkg"
+	"github.com/serhio83/api/pkg/mock"
 	"github.com/dgrijalva/jwt-go"
 	"github.com/gorilla/mux"
 )

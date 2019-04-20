@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"time"
 
-  "git.topcloud.ru/topcloud.ru/api/pkg"
+  "github.com/serhio83/api/pkg"
   "github.com/dgrijalva/jwt-go"
 )
 

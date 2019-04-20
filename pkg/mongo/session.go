@@ -1,7 +1,7 @@
 package mongo
 
 import (
-  "git.topcloud.ru/topcloud.ru/api/pkg"
+  "github.com/serhio83/api/pkg"
   "gopkg.in/mgo.v2"
 )
 

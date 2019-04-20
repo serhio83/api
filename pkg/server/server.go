@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"os"
 
-	"git.topcloud.ru/topcloud.ru/api/pkg"
+	"github.com/serhio83/api/pkg"
 	"github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
 )
