@@ -8,3 +8,8 @@
 ```
 # make
 ```
+
+### clean:
+```
+# make clean
+```
